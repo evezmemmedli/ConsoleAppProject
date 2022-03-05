@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppProject.Enum
 {
-    enum Categories
+    public enum Category
     {
-
-        Programming,
-        Design,
-        SystemAdministration,
-
-
+        Programming = 1,
+        Design = 2,
+        SystemAdministration = 3,
     }
 }

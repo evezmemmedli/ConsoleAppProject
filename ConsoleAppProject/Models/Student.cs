@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppProject
 {
-    internal class Students
+    public class Student
     {
         public string FullName;
         public string GroupNo;
-        public bool Type;
+        public bool IsWarranted;
 
-        public Students(string fullName,string groupNo)
+        public Student(string fullName, string groupNo, bool isWarranted)
         {
             FullName = fullName;
-            GroupNo= groupNo;
-            Type = false;
+            GroupNo = groupNo;
+            IsWarranted = false;
 
         }
     }
