@@ -14,8 +14,7 @@ namespace ConsoleAppProject
         public static int Count = 100;
         public Category Category;
         public bool IsOnline;
-        public Student[] Students;
-
+        public List<Student> Students=new List<Student>();
         public Group(Category category)
         {
 
@@ -42,6 +41,14 @@ namespace ConsoleAppProject
         {
             IsOnline = isOnline;
             Limit = isOnline ? 15 : 10;
+        }
+        public override string ToString()
+        {
+            string onlineStatus = IsOnline ? "Yes" : "No";
+            return @$"GroupNo : {No}
+                      GroupLimit : {Limit}
+                      Category : {Category}
+                      IsOnline : {onlineStatus}";
         }
     }
 }

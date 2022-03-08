@@ -16,36 +16,54 @@ namespace ConsoleAppProject
                 Console.WriteLine("1.Create Group");
                 Console.WriteLine("2.Show Groups");
                 Console.WriteLine("3.Edit Group");
-                Console.WriteLine("4.Students count on Group");
+                Console.WriteLine("4.Show Students in Group");
                 Console.WriteLine("5.Show all students");
-                Console.WriteLine("6.Creat students");
+                Console.WriteLine("6.Create students");
                 Console.WriteLine("7.Exit");
                 string strSelection = Console.ReadLine();
                 bool result = int.TryParse(strSelection, out selection);
 
                 if (true)
                 {
+                    Console.WriteLine();
                     switch (selection)
                     {
                         case 1:
                             {
-                                IApplicationService service = new ApplicationService();
-                                var group = service.CreateGroup(Enum.Category.Design);
-
-                                Console.WriteLine($"Created group number is: {group.No}\n");
-                                Console.WriteLine($"Created group Online is: {group.IsOnline}\n");
-                                Console.WriteLine($"Created group Limit is: {group.Limit}\n");
-
+                                MenuServices.CreatGroupMenu();
                                 break;
                             }
+                        case 2:
+                            {
+                                MenuServices.ShowGroupsMenu();
+                                break;
+
+                            }
+                        case 3: 
+                            {
+                            MenuServices.EditGroupsMenu();
+                                break;
+                            }
+                        //case 4:
+                        //    {
+                        //        MenuServices.ShowGroupsStudentsMenu();
+                        //        break;
+                        //    }
+                        //case 5:
+                        //    {
+                        //        MenuServices.ShowAllStudentsMenu();
+                        //        break;
+                        ////    }
+                        case 6:
+                            {
+                                MenuServices.CreateStudentsMenu();
+                                break;
+                            }
+
                         default:
+                            Console.WriteLine("Please choose valid number");
                             break;
                     }
-
-
-
-
-
                 }
             } while (selection != 0);
         }

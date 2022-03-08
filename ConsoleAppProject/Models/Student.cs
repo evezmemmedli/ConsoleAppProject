@@ -9,15 +9,17 @@ namespace ConsoleAppProject
     public class Student
     {
         public string FullName;
-        public string GroupNo;
         public bool IsWarranted;
 
-        public Student(string fullName, string groupNo, bool isWarranted)
+        public Student()
         {
-            FullName = fullName;
-            GroupNo = groupNo;
-            IsWarranted = false;
 
         }
+        public Student(string fullName, bool isWarranted)
+        {
+            FullName = fullName;
+            IsWarranted = isWarranted;
+        }
+
     }
 }
