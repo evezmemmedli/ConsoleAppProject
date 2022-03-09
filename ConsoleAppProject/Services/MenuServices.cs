@@ -6,7 +6,7 @@ namespace ConsoleAppProject.Services
 {
     public static class MenuServices
     {
-        public static IApplicationService service = new ApplicationService();
+        public static ApplicationService service = new ApplicationService();
         public static void CreatGroupMenu()
         {
             foreach (Category c in System.Enum.GetValues(typeof(Category)))
@@ -69,14 +69,16 @@ namespace ConsoleAppProject.Services
 
             Console.WriteLine($"Your group name has been changed to : {newNo}");
         }
-        //public static void ShowGroupsStudentsMenu()
-        //{
-        //    service.ShowGroupsStudents();
-        //}
-        //public static void ShowAllStudentsMenu()
-        //{
-        //    service.ListOfStudents();
-        //}
+        public static void ShowGroupsStudentsMenu()
+        {
+            Console.WriteLine("Group's students");
+            string a = Console.ReadLine();
+            service.ShowGroupsStudents(a);
+        }
+        public static void ShowAllStudentsMenu()
+        {
+            service.ListOfStudents();
+        }
 
         public static void CreateStudentsMenu()
         {
@@ -88,7 +90,6 @@ namespace ConsoleAppProject.Services
                 return;
             }
             Console.WriteLine("Please enter any number of group");
-
             string groupNumber = Console.ReadLine();
             var currentGroup = service.FindGroup(groupNumber);
 
@@ -97,11 +98,10 @@ namespace ConsoleAppProject.Services
                 Console.WriteLine("Please type correct group number");
                 return;
             }
-
+            
             Console.WriteLine("Please enter student's fullname");
             string fullname = Console.ReadLine();
             var fullnameIsValid = service.CheckFullname(fullname);
-
             if (!fullnameIsValid) return;
 
             Console.WriteLine("Please choose is Warrianted");
@@ -120,10 +120,10 @@ namespace ConsoleAppProject.Services
                 Console.WriteLine("Please choose correct type");
                 return;
             }
-
             bool warriante = warrianteStatus == 1;
 
             Student student = new Student(fullname, warriante);
+            
 
             service.CreateStudent(student, currentGroup);
         }

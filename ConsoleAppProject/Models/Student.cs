@@ -10,6 +10,7 @@ namespace ConsoleAppProject
     {
         public string FullName;
         public bool IsWarranted;
+        List<Student> Students;
 
         public Student()
         {
@@ -19,7 +20,16 @@ namespace ConsoleAppProject
         {
             FullName = fullName;
             IsWarranted = isWarranted;
+
         }
 
+
+
+        public override string ToString()
+        {
+            string warrantedStatus = IsWarranted ? "Yes" : "No";
+            return $@"Fullname : {FullName}
+                      IsWarranted : {warrantedStatus}";
+        }
     }
 }

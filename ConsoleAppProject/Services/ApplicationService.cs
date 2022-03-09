@@ -12,6 +12,9 @@ namespace ConsoleAppProject.Services
     public class ApplicationService : IApplicationService
     {
         private static List<Group> _groups = new List<Group>();
+        private static List<Student> Students = new List<Student>();
+
+
 
         #region Group
         public Group CreateGroup(Category category)
@@ -63,7 +66,7 @@ namespace ConsoleAppProject.Services
                 return false;
             }
 
-            if (!char.IsUpper(splitFullname[0][0]) && !char.IsUpper(splitFullname[1][0]))
+            if (!char.IsUpper(splitFullname[0][0]) || !char.IsUpper(splitFullname[1][0]))
             {
                 Console.WriteLine("Name and surname must be start with capital letter.");
                 return false;
@@ -133,17 +136,17 @@ namespace ConsoleAppProject.Services
             }
             return null;
         }
+
         public void ListOfStudents()
         {
-            //if (_students.Count == 0)
-            //{
-            //    Console.WriteLine("There is no student");
-            //    return;
-            //}
-            //foreach (Student students in _students)
-            //{
-            //    Console.WriteLine(students);
-            //}
+            foreach (var item in _groups)
+            {
+                foreach (Student student in item.Students)
+                {
+                    Console.WriteLine(student);
+                }
+            }
+           
         }
 
         public void ShowGroupsStudents(string no)

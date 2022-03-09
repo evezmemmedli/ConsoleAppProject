@@ -14,7 +14,7 @@ namespace ConsoleAppProject
         public static int Count = 100;
         public Category Category;
         public bool IsOnline;
-        public List<Student> Students=new List<Student>();
+        public List<Student> Students = new List<Student>();
         public Group(Category category)
         {
 

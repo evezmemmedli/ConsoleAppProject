@@ -8,8 +8,8 @@ namespace ConsoleAppProject
     internal class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Cinema Application\n");
+        { 
+            Console.WriteLine("Creat course application\n");
             int selection;
             do
             {
@@ -20,11 +20,13 @@ namespace ConsoleAppProject
                 Console.WriteLine("5.Show all students");
                 Console.WriteLine("6.Create students");
                 Console.WriteLine("7.Exit");
+
                 string strSelection = Console.ReadLine();
                 bool result = int.TryParse(strSelection, out selection);
 
                 if (true)
                 {
+
                     Console.WriteLine();
                     switch (selection)
                     {
@@ -39,21 +41,21 @@ namespace ConsoleAppProject
                                 break;
 
                             }
-                        case 3: 
+                        case 3:
                             {
-                            MenuServices.EditGroupsMenu();
+                                MenuServices.EditGroupsMenu();
                                 break;
                             }
-                        //case 4:
-                        //    {
-                        //        MenuServices.ShowGroupsStudentsMenu();
-                        //        break;
-                        //    }
-                        //case 5:
-                        //    {
-                        //        MenuServices.ShowAllStudentsMenu();
-                        //        break;
-                        ////    }
+                        case 4:
+                            {
+                                MenuServices.ShowGroupsStudentsMenu();
+                                break;
+                            }
+                        case 5:
+                            {
+                                MenuServices.ShowAllStudentsMenu();
+                                break;
+                            }
                         case 6:
                             {
                                 MenuServices.CreateStudentsMenu();
@@ -63,9 +65,13 @@ namespace ConsoleAppProject
                         default:
                             Console.WriteLine("Please choose valid number");
                             break;
+
                     }
+
                 }
+
             } while (selection != 0);
+
         }
     }
 }
